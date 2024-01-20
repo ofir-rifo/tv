@@ -1,13 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
 
-import NxWelcome from './nx-welcome';
-
+import { useEffect, useRef } from 'react';
+import VideoPlayer from './VideoPlayer';
 export function App() {
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    videoRef?.current?.play();
+  }, []);
+
   return (
-    <div>
-      <NxWelcome title="tv" />
-    </div>
+    <VideoPlayer videoUrl=''/>
   );
 }
 
